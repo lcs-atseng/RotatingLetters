@@ -7,11 +7,11 @@
 //
 
 import Foundation
-while 1 == 1 {
+prompt: while 1 == 1 {
     //INPUT
     
     // loop forever until we get good input
-    
+  var validInput = "" // outside the loop -- we can use it later on AFTER
     // Prompt the user
     print("Input word is?")
     
@@ -30,7 +30,26 @@ while 1 == 1 {
         continue // prompt again
     }
     
+    //Test #3: Check to ensure there is only UPPERCASE letters and no spaces
+    checking: for individualCharacter in givenInput {
+        
+        //DEBUG: PRint the character we are looking at
+        print(individualCharacter)
+        
+        //Check the character
+        switch individualCharacter {
+        case "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z":
+          continue checking //OK, go to next character in the string
+        default :
+          continue prompt //Stop looking, we found bad input
+        }
+    }
+    
     //If we got to this point, we know the input is good
+    validInput = givenInput
     break // quit the while loop and begin PROCESS section
 }
+
+// PROCESS
+print(validInput)
 
