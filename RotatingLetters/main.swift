@@ -7,11 +7,12 @@
 //
 
 import Foundation
-prompt: while 1 == 1 {
+
     //INPUT
     
     // loop forever until we get good input
   var validInput = "" // outside the loop -- we can use it later on AFTER
+prompt: while 1 == 1 {
     // Prompt the user
     print("Input word is?")
     
@@ -48,8 +49,26 @@ prompt: while 1 == 1 {
     //If we got to this point, we know the input is good
     validInput = givenInput
     break // quit the while loop and begin PROCESS section
+
 }
 
 // PROCESS
-print(validInput)
+var countOfGoodLetters = 0
+for letter in validInput {
+    
+    //check each letter to make sure it's IHOSZXN
+    print(letter)
+    if letter == "I"||letter == "O" || letter == "H" || letter == "S" || letter == "Z" || letter == "X" || letter == "N" {
+        // good - keep checking (continue loop)
+        countOfGoodLetters += 1
+        continue
+    }
+}
 
+//OUTPUT
+// If we got here, guaranteed this is a word with only acceptable letters
+if countOfGoodLetters == validInput.count {
+    print("YES")
+} else {
+    print("NO")
+}
